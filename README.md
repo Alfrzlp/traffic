@@ -10,6 +10,7 @@ import json
 import pickle
 from datetime import datetime as dt
 from datetime import timedelta
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 def get_data(): 
     appkey = "APP KEY"
@@ -29,14 +30,35 @@ def get_data():
         # pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 
-from apscheduler.schedulers.blocking import BlockingScheduler
-
 scheduler = BlockingScheduler()
 # ganti dengan tanggal start
 scheduler.add_job(get_data, 'interval', minutes=30, next_run_time=dt(2020, 2, 18, 17, 0, 0))
 scheduler.start()
 ```
 
+Untuk menyimpan plot anda bisa menggunakan cara lain
+seperti save dalam html terlebih dahulu lalu screenshot dengan Rselenium
+```r
+library(htmlwidgets)
+saveWidget(map, "2020-2-18-01-00-00.html")
+
+
+library(RSelenium)
+library(wdman)
+
+# sesuai versi chrome
+cDrv <- chrome(version = "88.0.4324.27")
+remDr<- remoteDriver(browserName = "chrome", port = 4444L)
+remDr$open()
+remDr$navigate("2020-2-18-01-00-00.html")
+remDr$screenshot(file = '2020-2-18-01-00-00.png')
+
+# clean up
+remDr$close()
+cDrv$stop()
+```
+
+## Hasil
 ### Jakarta
 ![Alt Text](https://github.com/Alfrzlp/traffic/blob/main/hasil/jakarta.gif)
 
