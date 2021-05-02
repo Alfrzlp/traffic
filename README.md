@@ -14,10 +14,14 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 def get_data(): 
     appkey = "APP KEY"
+    # surabaya
     base = f"https://traffic.ls.hereapi.com/traffic/6.2/flow.json"+\
     "?apiKey={appkey}"+\
     "&bbox=-6.775616,111.906528;-8.162503171095738,113.70357436384134&responseattributes=sh,fc"
-
+    
+    # bbox jakarta
+    # -6.077811,106.559667;-6.665355,107.146117
+    
     response = urlopen(base)
     data = json.load(response)
 
