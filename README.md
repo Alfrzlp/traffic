@@ -2,7 +2,7 @@
 Visualisasi Lalu lintas kota-kota di Indonesia dengan Leaflet
 
 ### Data
-untuk pengumpulan data saya menggunakan bantuan python dan pythoneverywhere
+untuk pengumpulan data saya menggunakan bantuan python dan python anywhere
 
 ```python
 from urllib.request import urlopen
