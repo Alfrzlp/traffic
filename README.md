@@ -52,7 +52,7 @@ library(wdman)
 
 # sesuai versi chrome
 cDrv <- chrome(version = "88.0.4324.27")
-remDr<- remoteDriver(browserName = "chrome", port = 4444L)
+remDr <- remoteDriver(browserName = "chrome", port = 4444L)
 remDr$open()
 remDr$navigate("2020-2-18-01-00-00.html")
 remDr$screenshot(file = '2020-2-18-01-00-00.png')
@@ -70,5 +70,5 @@ cDrv$stop()
 ![Alt Text](https://github.com/Alfrzlp/traffic/blob/main/hasil/surabaya_.gif)
 
 
-# Sumber
+## Referensi
 - [Lalu Lintas Jakarta di Pekan Kemerdekaan](https://medium.com/@nmonarizqa/lalu-lintas-jakarta-di-pekan-kemerdekaan-2f0d67c23240)
